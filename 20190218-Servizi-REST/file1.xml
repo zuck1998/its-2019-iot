@@ -1,0 +1,12 @@
+
+<products>
+    <product id="1">
+        <description>Descrizione prodotto 1</description>
+    </product>
+    <product id="2">
+        <description>Descrizione prodotto 2</description>
+    </product>
+    <product id="3">
+        <description>Descrizione prodotto 3</description>
+    </product>
+</products>

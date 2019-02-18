@@ -4,7 +4,7 @@ const http = require("http");
 const fs = require("fs");
 
 var result = op.add(2, 5);
-
+/*
 setTimeout(function(){
     console.log("ciao its");
     result = 99;
@@ -13,6 +13,7 @@ setTimeout(function(){
 setInterval(function(){
     console.log(result);
 }, 500);
+*/
 
 
 

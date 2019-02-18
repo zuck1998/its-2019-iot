@@ -1,0 +1,10 @@
+{
+    "name": "intro-fastify",
+    "description": "Introduzione a fastify",
+    "authors": "Andrea Dottor",
+    "version": "1.0.0",
+    "main": "index.js",
+    "dependencies": {
+        "fastify": "^1.14.1"
+    }
+}
