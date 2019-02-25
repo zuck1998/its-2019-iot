@@ -16,6 +16,8 @@
   * GET api/operations/div?num1=12&num2=34
 * Creare funzione che esegua le operazioni metematiche in POST
   * POST api/operations/execute
+    * nel campo *operation" passare il tipo di operazione da eseguire
+    * nei campi *num1* e *num2* passare i numeri da utilizzare
     * body: { "num1" : 12, "num2": 34, "operation": "add" }
 * Tutti i metodi devono ritornare un JSON:
     * { "result" : valore }
