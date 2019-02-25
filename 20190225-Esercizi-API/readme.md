@@ -10,17 +10,19 @@
 ## Esercitazione 1
 
 * Create funzione che esegua operazione matematica in GET e ritorni un JSON con il risultato
-  * GET api/operations/add?num1=12&num2=34
-  * GET api/operations/sub?num1=12&num2=34
-  * GET api/operations/mul?num1=12&num2=34
-  * GET api/operations/div?num1=12&num2=34
+  * GET /api/operations/add?num1=12&num2=34
+  * GET /api/operations/sub?num1=12&num2=34
+  * GET /api/operations/mul?num1=12&num2=34
+  * GET /api/operations/div?num1=12&num2=34
+  * I metodi devono ritornare il seguente JSON:
+      * { "result" : valore }
 * Creare funzione che esegua le operazioni metematiche in POST
-  * POST api/operations/execute
+  * POST /api/operations/execute
     * nel campo *operation" passare il tipo di operazione da eseguire
     * nei campi *num1* e *num2* passare i numeri da utilizzare
     * body: { "num1" : 12, "num2": 34, "operation": "add" }
-* Tutti i metodi devono ritornare un JSON:
-    * { "result" : valore }
+    * il metodo deve ritornare il seguente JSON:
+      * { "result" : valore }
 
 ## Esercitazione 2
 
