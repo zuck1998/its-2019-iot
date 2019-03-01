@@ -22,6 +22,11 @@ L'oggetto product dovrà avere le seguenti proprietà:
 * name
 * price
 
+Rispettare gli status code di ritorno
+
+* nel caso di 404 Not Found
+  * reply.status(404).send();
+
 #### STEP 2:
 
 Gestire le richieste anche per un oggetto Category con le seguenti proprietà:
