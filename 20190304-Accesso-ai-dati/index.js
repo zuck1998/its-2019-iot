@@ -20,7 +20,7 @@ var getProducts = async function(){
         let result = await pool.request()
                 .query('select top 10 * from SalesLT.Product');
         console.dir(result.recordset);
-        pool.close();
+        sql.close();
     } catch (error) {
         console.log(error);
     }
@@ -57,13 +57,13 @@ var getProductsById = async function(productId){
                 ,[ModifiedDate]
             from SalesLT.Product 
             where ProductId = ${productId}`
-            
+
         if(result.recordset.length == 0)
             console.log("Prodotto non trovato");
         else
             console.log(result.recordset[0]);
 
-        pool.close();
+        sql.close();
     } catch (error) {
         console.log(error);
     }
