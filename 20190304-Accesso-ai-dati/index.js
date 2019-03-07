@@ -14,21 +14,23 @@ const config = {
 
 // recupero tutti i record della tabella products
 // 
-var getProducts = async function(){
+var getProducts = async function () {
     try {
         let pool = await sql.connect(config);
         let result = await pool.request()
-                .query('select top 10 * from SalesLT.Product');
-        console.dir(result.recordset);
+            .query('select top 10 * from SalesLT.Product');
         sql.close();
+        console.dir(result.recordset);
+
     } catch (error) {
         console.log(error);
+        sql.close();
     }
 }
-getProducts();
+// getProducts();
 
 
-var getProductsById = async function(productId){
+var getProductsById = async function (productId) {
     try {
         let pool = await sql.connect(config);
         /*
@@ -36,7 +38,7 @@ var getProductsById = async function(productId){
                 .input("id", sql.Int, productId)
                 .query('select * from SalesLT.Product where ProductId = @id');
         */
-       const result = await sql.query`
+        const result = await pool.request().query`
             select
                 [ProductID]
                 ,[Name]
@@ -58,14 +60,15 @@ var getProductsById = async function(productId){
             from SalesLT.Product 
             where ProductId = ${productId}`
 
-        if(result.recordset.length == 0)
+        sql.close();
+        
+        if (result.recordset.length == 0)
             console.log("Prodotto non trovato");
         else
             console.log(result.recordset[0]);
-
-        sql.close();
     } catch (error) {
         console.log(error);
+        sql.close();
     }
 }
 getProductsById(680);
