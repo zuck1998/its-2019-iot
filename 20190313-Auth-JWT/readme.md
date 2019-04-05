@@ -22,10 +22,11 @@
 * CreationDate  datetime      NOT NULL getdate()
 * LastLogin     datetime      NULL
 
+
 ### API da implementare
 
 * POST /api/account/register         registrazione nuovo utente
 * POST /token                        login, restituisce il token
 * GET  /api/news                     senza autenticazione
 * POST /api/news                     deve richiedere autenticazione
-* 
+
