@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Introduzione a JQuery</title>
+    <style>
+        .selected{
+            border: 2px solid red;
+            margin: 5px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <ul id="menu1">
+        <li>Item 1</li>
+        <li id="item2">Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4
+            <ul id="menu2">
+                <li>Item 4-1</li>
+                <li>Item 4-2</li>
+                <li>Item 4-3</li>
+            </ul>
+        </li>
+        <li>Item 5</li>
+    </ul>
+
+    <input type="text" id="txtContent" value="Andrea" />
+    <button type="button" id="btnExec">Esegui</button>
+
+
+    <div class="key" data-num="1">1</div>
+    <div class="key" data-num="2">2</div>
+
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>
