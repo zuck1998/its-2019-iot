@@ -1,0 +1,9 @@
+{
+    "name": "sample-jquery",
+    "description": "Lezione del 2019.04.11",
+    "authors": "Andrea Dottor",
+    "version": "1.0.0",
+    "dependencies": {
+        "jquery": "^3.4.0"
+    }
+}
