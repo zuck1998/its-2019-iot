@@ -6,6 +6,11 @@ var txt = $("#txtName");
 var pnl = $("#pnlList");
 var btn = $("#btnSearch");
 
+// elementi del popup di dettaglio
+var modal = $("#modalDetails");
+var modalTitle = $("#lblTitle");
+var modalPnlDetails = $("#pnlDetails");
+
 btn.on("click", function () {
     var name = txt.val();
     pnl.empty();
@@ -17,7 +22,7 @@ btn.on("click", function () {
     };
     if(name)
         params.nameStartsWith = name;
-        
+
     $.ajax({
         url: urlMarvelCharacters,
         data: params,
@@ -32,6 +37,7 @@ btn.on("click", function () {
             for (let i = 0; i < list.length; i++) {
                 const p = list[i];
 
+                var id = p.id;
                 var name = p.name;
                 var description = p.description;
                 var photo = p.thumbnail.path + "." + p.thumbnail.extension;
@@ -59,9 +65,14 @@ btn.on("click", function () {
                 var divCardBody = $("<div class='card-body'></div>")
                 var divCardBodyTitle = $("<h5 class='card-title'></h5>")
                 var divCardBodyText = $("<p class='card-text'></p>")
+                var btnDetails = $("<button type='button' class='btn btn-primary'>Dettaglio</button>")
 
                 divCardBodyTitle.text(name);
                 divCardBodyText.text(description);
+                
+                btnDetails.attr("data-key", id);
+                btnDetails.on("click", openDetails);
+
                 $("img", divImg).attr("src", photo);
                 $("img", divImg).attr("alt", "Immagine di " + name);
 
@@ -77,6 +88,7 @@ btn.on("click", function () {
                 divText.append(divCardBody);
                 divCardBody.append(divCardBodyTitle);
                 divCardBody.append(divCardBodyText);
+                divCardBody.append(btnDetails);
                 pnl.append(card);
             }
         }
@@ -88,3 +100,62 @@ btn.on("click", function () {
     })
 
 });
+
+
+function openDetails(){
+    var btn = $(this);
+    //var id = btn.attr("data-key");
+    var id = btn.data("key");
+
+    modalTitle.text("");
+    modalPnlDetails.empty();
+
+    $.ajax({
+        url: urlMarvelCharacters + "/" + id,
+        data: {
+            apikey: key
+        },
+        type: "GET"
+    }).then(function (data) {
+        var list = data.data.results;
+
+        if (list.length == 0) {
+            modalPnlDetails.text("Dettaglio non trovato.");
+        } else {
+            const p = list[0];
+
+            var id = p.id;
+            var name = p.name;
+            var description = p.description;
+            var photo = p.thumbnail.path + "." + p.thumbnail.extension;
+
+            var pText = $("<p></p>")
+            pText.text(description);
+
+            modalTitle.text(name);
+            modalPnlDetails.append(pText);
+
+            // visualizzo i link
+            for (let i = 0; i < p.urls.length; i++) {
+                const urlItem = p.urls[i];
+
+                var aLink = $("<a class='btn btn-light' target='_blank'></a>");
+                aLink.attr("href", urlItem.url);
+                aLink.text(urlItem.type);
+
+                modalPnlDetails.append(aLink);
+            }
+
+        }
+        // visualizzo il popup modale
+        modal.modal('show');
+    }, function (jqXHR, errorTextStatus, error) {
+        console.log(errorTextStatus);
+        console.log(error);
+        modalPnlDetails.text("Errore nel recupero dei dati.");
+        // visualizzo il popup modale
+        modal.modal('show');
+    })
+
+
+}
