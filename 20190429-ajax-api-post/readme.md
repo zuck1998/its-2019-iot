@@ -12,3 +12,5 @@ Realizzare un applicativo html+javascript che :
 * creare una form con i campi necessari per eseguire un inserimento (POST) in un'API dello stesso esercizio.
 * al caricamento di pagina visualizzare i dati recuperati in GET
 * dopo un inserimento, aggiornare l'elenco dei dati (eseguendo nuovamente una chiamata in GET)
+
+Nel caso non si abbia un esercizio Node con le api in GET e POST, si può utilizzare [json-server](https://github.com/typicode/json-server).
