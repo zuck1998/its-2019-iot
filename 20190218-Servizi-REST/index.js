@@ -3,6 +3,9 @@ const fastify = require('fastify')({
     ignoreTrailingSlash: true 
 });
 
+fastify.register(require('fastify-cors'), { 
+  // put your options here
+});
 
 fastify.get('/', async (request, reply) => {
     return { name: 'Andrea', surname: 'Dottor' };
