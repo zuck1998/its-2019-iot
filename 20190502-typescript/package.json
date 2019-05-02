@@ -1,0 +1,12 @@
+{
+    "name": "typescript-its",
+    "description": "Lezione del 2019.05.02",
+    "authors": "Andrea Dottor",
+    "version": "1.0.0",
+    "dependencies": {
+        "jquery": "^3.4.0"
+    },
+    "devDependencies": {
+        "@types/jquery": "^3.3.29"
+    }
+}
