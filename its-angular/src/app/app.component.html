@@ -1,0 +1,40 @@
+
+<h1>ITS IoT</h1>
+
+
+<input type="text" 
+    #txtContent 
+    (keyup)="0">
+
+<button
+  [disabled]="txtContent.value.length > 0"
+ (click)="txtContent.value = 'pippo'">send</button>
+
+<strong>{{160-txtContent.value.length}}</strong>
+
+<br>
+{{txtContent.value}}<br>
+<br>
+<div style="border:1px solid red;" #pnl></div>
+
+
+<hr>
+
+<h2 class="title">{{message}}</h2>
+
+<button (click)="message = ''">reset</button>
+<button (click)="message = 'its'">set</button>
+<button (click)="showMessage()">show</button>
+<button (click)="showMessage2('ciao')">show 2</button>
+
+<input type="text" [(ngModel)]="message">
+
+<br>
+<br>
+
+<button (click)="listAdd(message)">add</button>
+<button (click)="listReset()">reset</button>
+
+<ul *ngIf="list.length < 10">
+  <li *ngFor="let s of list">{{s}}</li>
+</ul>
