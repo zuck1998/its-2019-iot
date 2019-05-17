@@ -36,5 +36,21 @@
 <button (click)="listReset()">reset</button>
 
 <ul *ngIf="list.length < 10">
-  <li *ngFor="let s of list">{{s}}</li>
+  <li *ngFor="let s of list">
+    <app-list-item 
+      [text]="s" 
+      [prefix]="'testo'"
+      (delete)="deleteItem($event)"
+      ></app-list-item>
+  </li>
 </ul>
+
+<app-list-item [text]="'pippo'"></app-list-item>
+
+<hr />
+
+<app-button [buttonText]="'1'"></app-button>
+<app-button [buttonText]="'2'"></app-button>
+<app-button [buttonText]="'3'"></app-button>
+<app-button [buttonText]="'4'"></app-button>
+
